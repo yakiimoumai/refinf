@@ -12,7 +12,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix refinf: <http://lod.srmt.nitech.ac.jp/resource/refinf/>.
+@prefix refinf: <https://raw.githubusercontent.com/yakiimoumai/refinf/main/refinf.ttl#> .
 # 参考　https://www.soumu.go.jp/main_content/000132512.pdf
 
 
