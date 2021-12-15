@@ -1,0 +1,101 @@
+@prefix time: <http://www.w3.org/2006/time#>.
+@prefix hutime: <http://resource.hutime.org/ontology/>.
+@prefix hcal: <http://datetime.hutime.org/calendar/>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix wd: <http://www.wikidata.org/entity/>.
+@prefix wdt: <http://www.wikidata.org/prop/direct/>.
+@prefix p: <http://www.wikidata.org/prop/>.
+@prefix ps: <http://www.wikidata.org/prop/statement/>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix refinf: <http://lod.srmt.nitech.ac.jp/resource/refinf/>.
+@prefix schema: <http://schema.org/>
+# 参考　https://www.soumu.go.jp/main_content/000132512.pdf
+
+<>
+  dct:title "食議論の参考情報データセット"@ja ;
+  dct:publisher[
+    foaf:name "フィリップ"@ja ;
+    foaf:homepage <http://phirip.com/mochimap/e/index.html/>
+  ];
+  dct:issued "2021-11-08"^^xsd:date ;
+  owl:versionInfo "0.0.1";
+  dct:description "Food Reference Information is an ontology created for Reference information for web discussions on food.";
+
+refinf:agenda1 a refinf:Agenda;
+  dct:label "『代替肉』を使った食品は健康にいいんですよね？"@ja;
+  dct:description "『代替肉』を使った食品は健康にいいんですよね？";
+  dct:created "2020-03-01"^^xsd:date;
+  dct:source "代替肉の類型";
+  refinf:sourceInfo <https://www.maff.go.jp/j/jas/attach/pdf/yosan-27.pdf>^^xsd:anyURI;
+
+refinf:refinfo1
+  # a refinf:RefInfo;
+  a refinf:Document;
+  dct:label "動物性・植物性たんぱく質の摂取と死亡リスクとの関連"@ja;
+  dct:description "動物性・植物性たんぱく質の摂取と死亡リスクとの関連"@ja;
+  refinf:author foaf:Agent;
+  dct:created "2010-01-01"^^xsd:date;
+  refinf:url "https://epi.ncc.go.jp/jphc/outcome/8289.html"^^xsd:anyURI;
+  schema:contentType "application/pdf";
+  refinf:hasData[
+    a refinf:StatisticalData;
+    refinf:isMachineReadable false;
+    schema:contentType "application/pdf";
+    rdfs:comment "植物性たんぱく質の摂取割合が多いほど死亡リスクが低いことがわかったと述べられている。Web記事"@ja.
+  ]
+
+refinf:relblt1 a refinf:Reliability;
+  dct:label "動物性・植物性たんぱく質の摂取と死亡リスクとの関連に対する餅山もちおの信頼性判断"@ja;
+  dct:created "2021-11-04"^^xsd:date;
+  refinf:reliability 0;
+  refinf:comment "私は動物性たんぱく質取りまくってるけど元気だよ"@ja;
+  refinf:relblt1 refinf:Person;
+  dct:source "8年間のベジタリアン生活をやめたら体に起きたこと"@ja;
+  refinf:url "https://www.womenshealthmag.com/jp/food/a62055/eating-meat-after-being-a-vegetarian-20180301/"^^xsd:anyURI;
+
+refinf:person1
+  a foaf:Person;
+  rdfs:label "餅山もちお"@ja;
+  foaf:name "餅山もちお"@ja;
+
+refinf:agenda2 a refinf:Agenda;
+  dct:label "朝食は本当に大切なのか？"@ja;
+  dct:description "食育の指導などで、朝食を食べることの大切さが述べられているが、別に朝食を食べなくても大丈夫ではないか？";
+  dct:created "2019-06-04"^^xsd:date;
+  dct:source "3 ライフステージ別の現状と取組（1）乳幼児・児童・思春期（子供の朝食欠食は増加傾向）";
+  refinf:sourceInfo <https://www.maff.go.jp/j/syokuiku/wpaper/h30/h30_h/book/part1/chap1/b1_c1_1_03.html>^^xsd:anyURI;
+
+refinf:refinfo2
+  # a refinf:RefInfo;
+  a refinf:Document;
+  dct:label "文部科学省「平成29年度全国学力・学習状況調査」"@ja;
+  dct:description "毎日朝食をとる児童生徒ほど、学力調査の得点が高い傾向"@ja;
+  refinf:author foaf:Agent;
+  dct:created "2015-12-10"^^xsd:date;
+  refinf:url "https://www.mext.go.jp/component/a_menu/education/micro_detail/__icsFiles/afieldfile/2015/12/10/1365027_1.pdf"^^xsd:anyURI;
+  schema:contentType "application/pdf";
+  refinf:hasData[
+    a refinf:StatisticalData;
+    refinf:isMachineReadable false;
+    schema:contentType "application/pdf";
+    rdfs:comment "学力と生活習慣の関係について分析したデータ、PDF中に表形式で書かれている"@ja.
+  ]
+
+  refinf:relblt2 a refinf:Reliability;
+    dct:label "文部科学省「平成29年度全国学力・学習状況調査」に対するワラビもち子の信頼性判断"@ja;
+    dct:created "2021-11-04"^^xsd:date;
+    refinf:reliability 0;
+    refinf:comment "私は毎朝朝食をとらないが学力が高い";
+    refinf:relblt1 refinf:Person;
+    dct:source "8年間のベジタリアン生活をやめたら体に起きたこと"@ja;
+
+
+refinf:person2
+  a foaf:Person;
+  rdfs:label "ワラビもち子"@ja;
+  foaf:name "ワラビもち子"@ja;
