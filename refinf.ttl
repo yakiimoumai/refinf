@@ -1,0 +1,145 @@
+@prefix time: <http://www.w3.org/2006/time#>.
+@prefix hutime: <http://resource.hutime.org/ontology/>.
+@prefix hcal: <http://datetime.hutime.org/calendar/>.
+@prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix wd: <http://www.wikidata.org/entity/>.
+@prefix wdt: <http://www.wikidata.org/prop/direct/>.
+@prefix p: <http://www.wikidata.org/prop/>.
+@prefix ps: <http://www.wikidata.org/prop/statement/>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix refinf: <http://lod.srmt.nitech.ac.jp/resource/refinf/>.
+# 参考　https://www.soumu.go.jp/main_content/000132512.pdf
+
+
+refinf:Agenda
+  a owl:Class;
+  rdfs:comment "議題を表すクラス"@ja.
+
+refinf:hasReference
+  a owl:ObjectProperty;
+  rdfs:domain refinf:Agenda;
+  rdfs:domain refinf:RefInfo;
+  rdfs:range refinf:RefInfo;
+  rdfs:comment "参考情報を表すプロパティ"@ja.
+
+refinf:RefInfo
+  a owl:Class;
+  rdfs:comment "参考情報を表すクラス"@ja.
+
+refinf:hasReliability
+  a owl:ObjectProperty;
+  rdfs:domain refinf:RefInfo;
+  rdfs:range refinf:Reliability;
+  rdfs:comment "参考情報への信頼度を表すプロパティ"@ja.
+
+refinf:Reliability
+  a owl:Class;
+  rdfs:comment "参加者による参考情報への信頼度を表すクラス"@ja.
+
+refinf:hasAnnotator
+  a owl:ObjectProperty;
+  rdfs:domain refinf:Reliability;
+  rdfs:range foaf:Agent;
+  rdfs:comment "参考情報への信頼度を付けた主体を表すプロパティ"@ja.
+
+refinf:CollectiveReliability
+  a owl:Class;
+  rdfs:subClassOf refinf:Reliability;
+  rdfs:comment "集合知的に計算した信頼度を表すクラス"@ja.
+
+refinf:SoftwareAgent
+  a owl:Class;
+  rdfs:subClassOf foaf:Agent;
+  rdfs:comment "ソフトウェアエージェント"@ja.
+
+
+#### Data
+refinf:Data
+  a owl:Class;
+  rdfs:subClassOf refinf:RefInfo;
+  rdfs:comment "データ"@ja.
+
+refinf:RawData
+  a owl:Class;
+  rdfs:subClassOf refinf:Data;
+  rdfs:comment "生データ"@ja.
+
+refinf:StatisticalData
+  a owl:Class;
+  rdfs:subClassOf refinf:Data;
+  rdfs:comment "統計データ"@ja.
+
+refinf:VisualizedData
+  a owl:Class;
+  rdfs:subClassOf refinf:Data;
+  rdfs:comment "可視化データ"@ja.
+
+refinf:KnowledgeGrapth
+  a owl:Class;
+  rdfs:subClassOf refinf:Data;
+  rdfs:comment "ナレッジグラフ"@ja.
+
+
+#### Document
+refinf:Document
+  a owl:Class;
+  rdfs:subClassOf refinf:RefInfo;
+  rdfs:comment "文書"@ja.
+
+refinf:AcademicPaper
+  a owl:Class;
+  rdfs:subClassOf refinf:Document;
+  rdfs:comment "学術論文"@ja.
+
+refinf:WebArticle
+  a owl:Class;
+  rdfs:subClassOf refinf:Document;
+  rdfs:comment "Web記事"@ja.
+
+refinf:NewsArticle
+  a owl:Class;
+  rdfs:subClassOf refinf:Document;
+  rdfs:comment "新聞"@ja.
+
+#### Book
+refinf:Book
+  a owl:Class;
+  rdfs:subClassOf refinf:Document;
+  rdfs:comment "書籍"@ja.
+
+refinf:AcademicBook
+  a owl:Class;
+  rdfs:subClassOf refinf:Book;
+  rdfs:comment "学術書籍"@ja.
+
+refinf:Magazine
+  a owl:Class;
+  rdfs:subClassOf refinf:Book;
+  rdfs:comment "雑誌"@ja.
+
+
+#### Narrative
+refinf:Narrative
+  a owl:Class;
+  rdfs:subClassOf refinf:RefInfo;
+  rdfs:comment "話"@ja.
+
+  refinf:Interview
+    a owl:Class;
+    rdfs:subClassOf refinf:Narrative;
+    rdfs:comment "インタビュー"@ja.
+
+  refinf:Rumor
+    a owl:Class;
+    rdfs:subClassOf refinf:Narrative;
+    rdfs:comment "噂"@ja.
+
+  refinf:Legend
+    a owl:Class;
+    rdfs:subClassOf refinf:Narrative;
+    rdfs:comment "伝説"@ja.
